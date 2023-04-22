@@ -4,6 +4,6 @@ import { BaseballController } from './baseball.controller';
 
 @Module({
   controllers: [BaseballController],
-  providers: [BaseballService]
+  providers: [BaseballService],
 })
 export class BaseballModule {}
