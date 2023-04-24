@@ -1,26 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import { CreateBaseballDto } from './dto/create-baseball.dto';
-import { UpdateBaseballDto } from './dto/update-baseball.dto';
+import { PlayerTypeDTO } from './dtos/playerType.dto';
 
 @Injectable()
 export class BaseballService {
-  create(createBaseballDto: CreateBaseballDto) {
-    return 'This action adds a new baseball';
+  compareNumbers(playerNumbers: number[], opponentNumbers: number[]): [number, number, number] {
+    let strikes = 0;
+    let balls = 0;
+    let outs = 0;
+
+    for (let i = 0; i < playerNumbers.length; i++) {
+      if (playerNumbers[i] === opponentNumbers[i]) strikes++;
+      else if (opponentNumbers.includes(playerNumbers[i])) balls++;
+      else outs++;
+    }
+
+    return [strikes, balls, outs];
   }
 
-  findAll() {
-    return `This action returns all baseball`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} baseball`;
-  }
-
-  update(id: number, updateBaseballDto: UpdateBaseballDto) {
-    return `This action updates a #${id} baseball`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} baseball`;
+  isMyTurn(player: PlayerTypeDTO, currentPlayer: PlayerTypeDTO): boolean {
+    return currentPlayer === player;
   }
 }
