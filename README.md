@@ -1,5 +1,7 @@
 # docker 사용법
 
+[Click 노션 정리 링크(정리가 아닐 수도???)](https://thunder-hovercraft-e46.notion.site/f478edd5145940e4a1bad5add3201119)
+
 ### 스크립트 실행
 
 - sh start.sh
